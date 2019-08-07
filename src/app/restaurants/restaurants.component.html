@@ -7,6 +7,7 @@
 <section class="content">
 
     <div class="row">
+        <div *ngIf="carregando" class="carregamento"></div>
         <div *ngFor="let restaurant of restaurants" class="col-sm-6 col-xs-12">
             <mt-restaurant [restaurant]="restaurant"></mt-restaurant>
             <!-- /.info-box -->

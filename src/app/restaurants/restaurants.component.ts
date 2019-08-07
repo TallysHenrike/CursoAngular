@@ -9,13 +9,18 @@ import { RestaurantsService } from './restaurants.services';
 })
 export class RestaurantsComponent implements OnInit {
 
+	public carregando: boolean = true;
+
 	restaurants: Restaurant[];
 
 	constructor(private restaurantsService: RestaurantsService) { }
 
 	ngOnInit() {
 		this.restaurantsService.restaurants()
-			.subscribe(restaurants => this.restaurants = restaurants);
+			.subscribe(restaurants => {
+				this.restaurants = restaurants;
+				this.carregando = false;
+			});
 	}
 
 }
